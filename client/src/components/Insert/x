@@ -1,4 +1,4 @@
-<div className="p-4">
+<div className="p-4 card">
         <h1 className="text-4xl text-center font-bold mt-6 mb-10">Insert New Employee</h1>
       </div>
       <div className="flex flex-col border-2 border-black-900 rounded-xl w-[800px] mx-auto p-10">
@@ -15,3 +15,43 @@
   Submit</button>
         </div>
       </div>
+
+
+
+<div className="px-14">
+      <table className='overflow-x-hidden w-full border-seperate border-spacing-2 mt-20 mb-20'>
+        <thead>
+          <tr>
+            <th className="border border-slate-600 rounded-md px-3 py-3">Sr. No.</th>
+            <th className="border border-slate-600 rounded-md px-3 py-3">Name</th>
+            <th className="border border-slate-600 rounded-md px-3 py-3 max-md:hidden">Age</th>
+            <th className="border border-slate-600 rounded-md px-3 py-3 max-md:hidden">Email</th>
+            <th className="border border-slate-600 rounded-md px-3 py-3 max-md:hi15dden">Location</th>
+            <th className="border border-slate-600 rounded-md px-3 py-3">Salary</th>
+            <th className="border border-slate-600 rounded-md px-3 py-3">Designation</th>
+            <th className="border border-slate-600 rounded-md px-3 py-3">Operations</th>
+          </tr>
+        </thead>
+        <tbody>
+          {employees.map((employee, index) => (
+            <tr key={employee._id} className='h-8'>
+              <td className='border border-slate-600 rounded-md text-center px-3 py-3'>{index + 1}</td>
+              <td className='border border-slate-600 rounded-md text-center px-3 py-3'>{employee.name}</td>
+              <td className='border border-slate-600 rounded-md text-center px-3 py-3 max-md:hidden'>{employee.age}</td>
+              <td className='border border-slate-600 rounded-md text-center px-3 py-3 max-md:hidden'>{employee.email}</td>
+              <td className='border border-slate-600 rounded-md text-center px-3 py-3 max-md:hidden'>{employee.address}</td>
+              <td className='border border-slate-600 rounded-md text-center px-3 py-3'>{employee.salary}</td>
+              <td className='border border-slate-600 rounded-md text-center px-3 py-3'>{employee.designation}</td>
+              <td className='border border-slate-600 rounded-md text-center px-3 py-3'>
+              <Link to={`/update/${employee._id}`}><button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Update</button></Link>
+              {/* <Link to={`/delete/${employee._id}`}> */}
+              <button type="button" className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" onClick={() => handleDelete(employee._id)}>Delete</button>
+              {/* </Link> */}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+
+box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
